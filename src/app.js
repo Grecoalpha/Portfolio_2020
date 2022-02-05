@@ -218,7 +218,7 @@ Ammo().then((Ammo) => {
     );
     let body = new Ammo.btRigidBody(rbInfo);
     //body.setFriction(4);
-    body.setRollingFriction(10);
+    body.setRollingFriction(4);
 
     //set ball friction
 
@@ -236,61 +236,7 @@ Ammo().then((Ammo) => {
     rigidBodies.push(ballObject);
   }
 
-  //create beach ball Mesh
-  function createBeachBall() {
-    let pos = { x: 20, y: 30, z: 0 };
-    let radius = 2;
-    let quat = { x: 0, y: 0, z: 0, w: 1 };
-    let mass = 20;
-
-    //import beach ball texture
-    var texture_loader = new THREE.TextureLoader(manager);
-    var beachTexture = texture_loader.load('./src/jsm/BeachBallColor.jpg');
-    beachTexture.wrapS = beachTexture.wrapT = THREE.RepeatWrapping;
-    beachTexture.repeat.set(1, 1);
-    beachTexture.anisotropy = 1;
-    beachTexture.encoding = THREE.sRGBEncoding;
-
-    //threeJS Section
-    let ball = new THREE.Mesh(
-      new THREE.SphereGeometry(radius, 32, 32),
-      new THREE.MeshLambertMaterial({ map: beachTexture })
-    );
-
-    ball.position.set(pos.x, pos.y, pos.z);
-    ball.castShadow = true;
-    ball.receiveShadow = true;
-    scene.add(ball);
-
-    //Ammojs Section
-    let transform = new Ammo.btTransform();
-    transform.setIdentity();
-    transform.setOrigin(new Ammo.btVector3(pos.x, pos.y, pos.z));
-    transform.setRotation(
-      new Ammo.btQuaternion(quat.x, quat.y, quat.z, quat.w)
-    );
-    let motionState = new Ammo.btDefaultMotionState(transform);
-
-    let colShape = new Ammo.btSphereShape(radius);
-    colShape.setMargin(0.05);
-
-    let localInertia = new Ammo.btVector3(0, 0, 0);
-    colShape.calculateLocalInertia(mass, localInertia);
-
-    let rbInfo = new Ammo.btRigidBodyConstructionInfo(
-      mass,
-      motionState,
-      colShape,
-      localInertia
-    );
-    let body = new Ammo.btRigidBody(rbInfo);
-
-    body.setRollingFriction(1);
-    physicsWorld.addRigidBody(body);
-
-    ball.userData.physicsBody = body;
-    rigidBodies.push(ball);
-  }
+ 
 
   //create link boxes
   function createBox(
@@ -387,7 +333,7 @@ Ammo().then((Ammo) => {
         new THREE.MeshPhongMaterial({ color: color }), // side
       ];
 
-      var geometry = new THREE.TextGeometry('RYAN FLOYD', {
+      var geometry = new THREE.TextGeometry('UNBL*CKED', {
         font: font,
         size: 3,
         height: 0.5,
@@ -431,7 +377,7 @@ Ammo().then((Ammo) => {
         new THREE.MeshPhongMaterial({ color: color }), // side
       ];
 
-      var geometry = new THREE.TextGeometry('SOFTWARE ENGINEER', {
+      var geometry = new THREE.TextGeometry('BY AIDEN', {
         font: font,
         size: 1.5,
         height: 0.5,
@@ -680,8 +626,8 @@ Ammo().then((Ammo) => {
     var brickLength = 3;
     var brickDepth = 3;
     var brickHeight = 1.5;
-    var numberOfBricksAcross = 6;
-    var numberOfRowsHigh = 6;
+    var numberOfBricksAcross = 10;
+    var numberOfRowsHigh = 20;
 
     pos.set(70, brickHeight * 0.5, -60);
     quat.set(0, 0, 0, 1);
@@ -942,7 +888,7 @@ Ammo().then((Ammo) => {
       createBall();
     }
 
-    //check to see if ball is on text to rotate camera
+    //check to see if ball is on text to rotate era
     rotateCamera(ballObject);
   }
 
