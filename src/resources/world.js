@@ -30,7 +30,7 @@ export function createWorld() {
 
   // camera
   camera = new THREE.PerspectiveCamera(
-    45,
+    80,
     window.innerWidth / window.innerHeight,
     1,
     5000
