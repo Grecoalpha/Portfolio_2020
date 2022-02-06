@@ -30,12 +30,12 @@ export function createWorld() {
 
   // camera
   camera = new THREE.PerspectiveCamera(
-    20,
+    30,
     window.innerWidth / window.innerHeight,
     1,
     5000
   );
-  camera.position.set(0, 30, 70);
+  camera.position.set(0, 30, 60);
   //camera.lookAt(scene.position);
 
   //Add hemisphere light
@@ -138,8 +138,8 @@ export function createLensFlare(x, y, z, xScale, zScale, boxTexture) {
   texture.encoding = THREE.sRGBEncoding;
   const loadedTexture = new THREE.MeshBasicMaterial({
     map: texture,
-    transparent: true,
-    opacity: 0.9,
+    transparent: false,
+    opacity: 1,
   });
   loadedTexture.depthWrite = true;
   loadedTexture.depthTest = true;
@@ -178,11 +178,11 @@ export let galaxyPoints = null;
 
 export const generateGalaxy = () => {
   const parameters = {};
-  parameters.count = 50000;
+  parameters.count = 500000;
   parameters.size = 0.005;
   parameters.radius = 100;
   parameters.branches = 3;
-  parameters.spin = 1;
+  parameters.spin = .5;
 
   parameters.randomnessPower = 3;
   parameters.insideColor = '#ff6030';
