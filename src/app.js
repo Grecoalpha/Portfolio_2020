@@ -356,7 +356,7 @@ Ammo().then((Ammo) => {
 
       text = new THREE.Mesh(geometry, textMaterials);
       text.position.z = -30;
-      text.position.y = 5;
+      text.position.y = 15;
       text.receiveShadow = true;
       text.castShadow = true;
       scene.add(text);
@@ -398,8 +398,8 @@ Ammo().then((Ammo) => {
 
       text = new THREE.Mesh(textGeo, textMaterials);
       text.position.z = -10;
-      text.position.y = 5;
-      text.position.x = 24;
+      text.position.y = 15;
+      text.position.x = 60;
       text.receiveShadow = true;
       text.castShadow = true;
       scene.add(text);
@@ -571,7 +571,7 @@ Ammo().then((Ammo) => {
 
   //create X axis wall around entire plane
   function createWallX(x, y, z) {
-    const wallScale = { x: 0.125, y: 0, z: 175 };
+    const wallScale = { x: 0.125, y: -2, z: 175 };
 
     const wall = new THREE.Mesh(
       new THREE.BoxBufferGeometry(wallScale.x, wallScale.y, wallScale.z),
@@ -595,7 +595,7 @@ Ammo().then((Ammo) => {
 
   //create Z axis wall around entire plane
   function createWallZ(x, y, z) {
-    const wallScale = { x: 175, y: 0, z: 0.125 };
+    const wallScale = { x: 175, y: -2, z: 0.125 };
 
     const wall = new THREE.Mesh(
       new THREE.BoxBufferGeometry(wallScale.x, wallScale.y, wallScale.z),
@@ -623,11 +623,11 @@ Ammo().then((Ammo) => {
     var pos = new THREE.Vector3();
     var quat = new THREE.Quaternion();
     var brickMass = 0.1;
-    var brickLength = 3;
+    var brickLength = 5;
     var brickDepth = 3;
     var brickHeight = 1.5;
-    var numberOfBricksAcross = 10;
-    var numberOfRowsHigh = 20;
+    var numberOfBricksAcross = 5;
+    var numberOfRowsHigh = 29;
 
     pos.set(70, brickHeight * 0.5, -60);
     quat.set(0, 0, 0, 1);
