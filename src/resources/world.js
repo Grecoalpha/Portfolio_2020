@@ -26,7 +26,7 @@ export function createWorld() {
 
   // init new Three.js scene
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x000000);
+  scene.background = new THREE.Color(0x002147);
 
   // camera
   camera = new THREE.PerspectiveCamera(
@@ -93,8 +93,8 @@ export function glowingParticles() {
   particleGroup.position.z = 45;
   particleAttributes = { startSize: [], startPosition: [], randomness: [] };
 
-  var totalParticles = 50;
-  var radiusRange = 4;
+  var totalParticles = 300;
+  var radiusRange = 100;
   for (var i = 0; i < totalParticles; i++) {
     var spriteMaterial = new THREE.SpriteMaterial({
       map: particleTexture,
@@ -303,7 +303,7 @@ export function moveParticles() {
   }
 
   //move stemkoski particles
-  var time = 7 * clock.getElapsedTime();
+  var time = 3 * clock.getElapsedTime();
 
   for (var c = 0; c < particleGroup.children.length; c++) {
     var sprite = particleGroup.children[c];
