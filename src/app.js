@@ -75,7 +75,7 @@ Ammo().then((Ammo) => {
 
   //Ammo Dynamic bodies for ball
   let ballObject = null;
-  const STATE = { DISABLE_DEACTIVATION: 4 };
+  const STATE = { DISABLE_DEACTIVATION: 4};
 
   //default transform object
   let tmpTrans = new Ammo.btTransform();
@@ -112,7 +112,7 @@ Ammo().then((Ammo) => {
     let mass = 0; //mass of zero = infinite mass
 
     //create grid overlay on plane
-    var grid = new THREE.GridHelper(400, 300, 0xffffff, 0xffffff);
+    var grid = new THREE.GridHelper(400, 300, 0x264348, 0x004953);
     grid.material.opacity = 1;
     grid.material.transparent = false;
     grid.position.y = 0.005;
@@ -159,7 +159,7 @@ Ammo().then((Ammo) => {
     );
     let body = new Ammo.btRigidBody(rigidBodyStruct);
     body.setFriction(10);
-    body.setRollingFriction(10);
+    body.setRollingFriction(2);
 
     // add to world
     physicsWorld.addRigidBody(body);
@@ -170,13 +170,13 @@ Ammo().then((Ammo) => {
     let pos = { x: 8.75, y: 0, z: 0 };
     let radius = 2;
     let quat = { x: 0, y: 0, z: 0, w: 1 };
-    let mass = .2;
+    let mass = 5;
 
     var marble_loader = new THREE.TextureLoader(manager);
     var marbleTexture = marble_loader.load('./src/jsm/earth.jpg');
     marbleTexture.wrapS = marbleTexture.wrapT = THREE.RepeatWrapping;
     marbleTexture.repeat.set(1, 1);
-    marbleTexture.anisotropy = 1;
+    marbleTexture.anisotropy = 3;
     marbleTexture.encoding = THREE.sRGBEncoding;
 
     //threeJS Section
@@ -577,7 +577,7 @@ Ammo().then((Ammo) => {
       new THREE.BoxBufferGeometry(wallScale.x, wallScale.y, wallScale.z),
       new THREE.MeshStandardMaterial({
         color: 0xffffff,
-        opacity: 0.75,
+        opacity: 0.,
         transparent: true,
       })
     );
@@ -601,7 +601,7 @@ Ammo().then((Ammo) => {
       new THREE.BoxBufferGeometry(wallScale.x, wallScale.y, wallScale.z),
       new THREE.MeshStandardMaterial({
         color: 0xffffff,
-        opacity: 0.75,
+        opacity: 0.,
         transparent: true,
       })
     );
@@ -627,7 +627,7 @@ Ammo().then((Ammo) => {
     var brickDepth = 3;
     var brickHeight = 1.5;
     var numberOfBricksAcross = 5;
-    var numberOfRowsHigh = 29;
+    var numberOfRowsHigh = 9;
 
     pos.set(70, brickHeight * 0.5, -60);
     quat.set(0, 0, 0, 1);
@@ -936,10 +936,7 @@ Ammo().then((Ammo) => {
     createGridPlane();
     createBall();
 
-    createWallX(87.5, 1.75, 0);
-    createWallX(-87.5, 1.75, 0);
-    createWallZ(0, 1.75, 87.5);
-    createWallZ(0, 1.75, -87.5);
+   
 
     createBillboard(
       -80,
