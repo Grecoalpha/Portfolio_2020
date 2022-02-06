@@ -107,13 +107,13 @@ Ammo().then((Ammo) => {
   function createGridPlane() {
     // block properties
     let pos = { x: 0, y: -0.25, z: 0 };
-    let scale = { x: 400, y: 0.5, z: 175 };
+    let scale = { x: 800, y: 0.5, z: 300 };
     let quat = { x: 0, y: 0, z: 0, w: 1 };
     let mass = 0; //mass of zero = infinite mass
 
     //create grid overlay on plane
-    var grid = new THREE.GridHelper(400, 20, 0xffffff, 0xffffff);
-    grid.material.opacity = 0.5;
+    var grid = new THREE.GridHelper(400, 300, 0xffffff, 0xffffff);
+    grid.material.opacity = 1;
     grid.material.transparent = false;
     grid.position.y = 0.005;
     scene.add(grid);
@@ -168,9 +168,9 @@ Ammo().then((Ammo) => {
   // create ball
   function createBall() {
     let pos = { x: 8.75, y: 0, z: 0 };
-    let radius = 4;
+    let radius = 2;
     let quat = { x: 0, y: 0, z: 0, w: 1 };
-    let mass = 1;
+    let mass = .2;
 
     var marble_loader = new THREE.TextureLoader(manager);
     var marbleTexture = marble_loader.load('./src/jsm/earth.jpg');
@@ -326,7 +326,7 @@ Ammo().then((Ammo) => {
     text_loader.load('./src/jsm/Roboto_Regular.json', function (font) {
       var xMid, text;
 
-      var color = 0xfffc00;
+      var color = 0x477C8E;
 
       var textMaterials = [
         new THREE.MeshBasicMaterial({ color: color }), // front
@@ -399,7 +399,7 @@ Ammo().then((Ammo) => {
       text = new THREE.Mesh(textGeo, textMaterials);
       text.position.z = -10;
       text.position.y = 15;
-      text.position.x = 60;
+      text.position.x = 80;
       text.receiveShadow = true;
       text.castShadow = true;
       scene.add(text);
@@ -748,7 +748,7 @@ Ammo().then((Ammo) => {
       new THREE.MeshBasicMaterial({ color: 0xffffff })
     );
     mesh.rotation.x = -Math.PI * 0.5;
-    //mesh.rotation.z = -90;
+    mesh.rotation.z = -90;
     mesh.position.y = 0.01;
     mesh.position.x = x;
     mesh.position.z = z;
