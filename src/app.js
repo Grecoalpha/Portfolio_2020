@@ -100,21 +100,21 @@ Ammo().then((Ammo) => {
     );
 
     // add gravity
-    physicsWorld.setGravity(new Ammo.btVector3(0, -50, 0));
+    physicsWorld.setGravity(new Ammo.btVector3(0, -20, 0));
   }
 
   //create flat plane
   function createGridPlane() {
     // block properties
     let pos = { x: 0, y: -0.25, z: 0 };
-    let scale = { x: 175, y: 0.5, z: 175 };
+    let scale = { x: 400, y: 0.5, z: 175 };
     let quat = { x: 0, y: 0, z: 0, w: 1 };
     let mass = 0; //mass of zero = infinite mass
 
     //create grid overlay on plane
-    var grid = new THREE.GridHelper(175, 20, 0xffffff, 0xffffff);
+    var grid = new THREE.GridHelper(400, 20, 0xffffff, 0xffffff);
     grid.material.opacity = 0.5;
-    grid.material.transparent = true;
+    grid.material.transparent = false;
     grid.position.y = 0.005;
     scene.add(grid);
 
@@ -123,8 +123,8 @@ Ammo().then((Ammo) => {
       new THREE.BoxBufferGeometry(),
       new THREE.MeshPhongMaterial({
         color: 0xffffff,
-        transparent: true,
-        opacity: 0.25,
+        transparent: false,
+        opacity: 1,
       })
     );
     blockPlane.position.set(pos.x, pos.y, pos.z);
@@ -168,9 +168,9 @@ Ammo().then((Ammo) => {
   // create ball
   function createBall() {
     let pos = { x: 8.75, y: 0, z: 0 };
-    let radius = 2;
+    let radius = 4;
     let quat = { x: 0, y: 0, z: 0, w: 1 };
-    let mass = 3;
+    let mass = 1;
 
     var marble_loader = new THREE.TextureLoader(manager);
     var marbleTexture = marble_loader.load('./src/jsm/earth.jpg');
@@ -335,8 +335,8 @@ Ammo().then((Ammo) => {
 
       var geometry = new THREE.TextGeometry('UNBL*CKED', {
         font: font,
-        size: 3,
-        height: 0.5,
+        size: 15,
+        height: 5,
         curveSegments: 12,
         bevelEnabled: true,
         bevelThickness: 0.1,
@@ -355,8 +355,8 @@ Ammo().then((Ammo) => {
       var textGeo = new THREE.BufferGeometry().fromGeometry(geometry);
 
       text = new THREE.Mesh(geometry, textMaterials);
-      text.position.z = -20;
-      text.position.y = 0.1;
+      text.position.z = -30;
+      text.position.y = 5;
       text.receiveShadow = true;
       text.castShadow = true;
       scene.add(text);
@@ -379,8 +379,8 @@ Ammo().then((Ammo) => {
 
       var geometry = new THREE.TextGeometry('BY AIDEN', {
         font: font,
-        size: 1.5,
-        height: 0.5,
+        size: 10,
+        height: 5,
         curveSegments: 20,
         bevelEnabled: true,
         bevelThickness: 0.25,
@@ -397,8 +397,8 @@ Ammo().then((Ammo) => {
       var textGeo = new THREE.BufferGeometry().fromGeometry(geometry);
 
       text = new THREE.Mesh(textGeo, textMaterials);
-      text.position.z = -20;
-      text.position.y = 0.1;
+      text.position.z = -10;
+      text.position.y = 5;
       text.position.x = 24;
       text.receiveShadow = true;
       text.castShadow = true;
@@ -571,7 +571,7 @@ Ammo().then((Ammo) => {
 
   //create X axis wall around entire plane
   function createWallX(x, y, z) {
-    const wallScale = { x: 0.125, y: 4, z: 175 };
+    const wallScale = { x: 0.125, y: 0, z: 175 };
 
     const wall = new THREE.Mesh(
       new THREE.BoxBufferGeometry(wallScale.x, wallScale.y, wallScale.z),
@@ -595,7 +595,7 @@ Ammo().then((Ammo) => {
 
   //create Z axis wall around entire plane
   function createWallZ(x, y, z) {
-    const wallScale = { x: 175, y: 4, z: 0.125 };
+    const wallScale = { x: 175, y: 0, z: 0.125 };
 
     const wall = new THREE.Mesh(
       new THREE.BoxBufferGeometry(wallScale.x, wallScale.y, wallScale.z),
