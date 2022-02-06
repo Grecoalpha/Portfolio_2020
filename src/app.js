@@ -571,7 +571,7 @@ Ammo().then((Ammo) => {
 
   //create X axis wall around entire plane
   function createWallX(x, y, z) {
-    const wallScale = { x: 0.125, y: -2, z: 175 };
+    const wallScale = { x: 0.125, y: -5, z: 175 };
 
     const wall = new THREE.Mesh(
       new THREE.BoxBufferGeometry(wallScale.x, wallScale.y, wallScale.z),
@@ -595,7 +595,7 @@ Ammo().then((Ammo) => {
 
   //create Z axis wall around entire plane
   function createWallZ(x, y, z) {
-    const wallScale = { x: 175, y: -2, z: 0.125 };
+    const wallScale = { x: 175, y: -5, z: 0.125 };
 
     const wall = new THREE.Mesh(
       new THREE.BoxBufferGeometry(wallScale.x, wallScale.y, wallScale.z),
@@ -1067,7 +1067,7 @@ Ammo().then((Ammo) => {
     floatingLabel(11.875, 4.5, -70, 'Github');
     floatingLabel(19.125, 4.5, -70, 'LinkedIn');
     floatingLabel(26.875, 4.5, -70, 'Email');
-    // floatingLabel(35, 6.5, -70, '  Static \nWebsite');
+    floatingLabel(35, 6.5, -70, '  Static \nWebsite');
     floatingLabel(35, 6.5, -70, '   How I \nmade this');
     // floatingLabel(44, 6.5, -70, '   How I \nmade this');
 
