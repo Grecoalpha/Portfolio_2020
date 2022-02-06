@@ -30,8 +30,8 @@ export function rotateCamera(ballPosition) {
   ) {
     targetPos = new THREE.Vector3(
       ballPosition.position.x,
-      ballPosition.position.y + 50,
-      ballPosition.position.z + 40
+      ballPosition.position.y + 80,
+      ballPosition.position.z + 20
     );
   }
 
@@ -118,13 +118,3 @@ export function launchHover(event) {
   }
 }
 
-//deprecated camera function
-/*
-function rotateCamera(ballPosition) {
-
-    //no change
-  } else {
-    camera.position.x = ballPosition.position.x;
-    camera.position.y = ballPosition.position.y + 30;
-    camera.position.z = ballPosition.position.z + 60;
-    camera.lookAt(ballPosition.position);
