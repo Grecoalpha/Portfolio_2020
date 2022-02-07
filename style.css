@@ -1,13 +1,12 @@
 body {
   margin: 0;
-  color: #fff;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  overscroll-behavior: none;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  overflow-y: hidden;
+  color: #264348;
+  font-family: "Gochi Hand"; 
+  font-size: 24px;
+  font-style: normal; 
+  font-variant: normal; 
+  font-weight: 700; 
+  line-height: 18.5714px; 
 }
 
 canvas {
@@ -181,7 +180,7 @@ select {
   font-size: 25px;
   background-color: grey;
   border: none;
-  color: #fffc00;
+  color: #00a86b;
   border-radius: 12px;
   padding: 15px 30px 15px 30px;
   -webkit-appearance: none;
@@ -209,7 +208,7 @@ select {
 }*/
 
 .yellow-text {
-  color: #fffc00;
+  color: #1d2951;
 }
 
 #static-site-link {
@@ -294,7 +293,7 @@ select {
   font-size: 26px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  color: #fffc00;
+  color: #1d2951;
 }
 
 @keyframes blink {
