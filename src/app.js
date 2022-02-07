@@ -89,7 +89,7 @@ Ammo().then((Ammo) => {
     let collisionConfiguration = new Ammo.btDefaultCollisionConfiguration(),
       dispatcher = new Ammo.btCollisionDispatcher(collisionConfiguration), // dispatch calculations for overlapping pairs/ collisions.
       overlappingPairCache = new Ammo.btDbvtBroadphase(), //broadphase collision detection list of all possible colliding pairs
-      constraintSolver = new Ammo.btSequentialImpulseConstraintSolver(); //causes the objects to interact properly, like gravity, game logic forces, collisions
+      constraintSolver = new Ammo.btSequentialImpulseConstraintSolver(); //causes the objects to interact properly, like ity, game logic forces, collisions
 
     // see bullet physics docs for info
     physicsWorld = new Ammo.btDiscreteDynamicsWorld(
@@ -100,7 +100,7 @@ Ammo().then((Ammo) => {
     );
 
     // add gravity
-    physicsWorld.setGravity(new Ammo.btVector3(0, -300, 0));
+    physicsWorld.setGravity(new Ammo.btVector3(0, -140, 0));
   }
 
   //create flat plane
@@ -112,7 +112,7 @@ Ammo().then((Ammo) => {
     let mass = 0; //mass of zero = infinite mass
 
     //create grid overlay on plane
-    var grid = new THREE.GridHelper(400, 300, 0x264348, 0x004953);
+    var grid = new THREE.GridHelper(400, 500, 0x264348, 0x004953);
     grid.material.opacity = 1;
     grid.material.transparent = false;
     grid.position.y = 0.005;
@@ -167,10 +167,10 @@ Ammo().then((Ammo) => {
 
   // create ball
   function createBall() {
-    let pos = { x: 8.75, y: 300, z: 0 };
+    let pos = { x: 8.75, y: 200, z: 0 };
     let radius = 1;
     let quat = { x: 0, y: 0, z: 0, w: 1 };
-    let mass = 10;
+    let mass = 2;
 
     var marble_loader = new THREE.TextureLoader(manager);
     var marbleTexture = marble_loader.load('./src/jsm/earth.jpg');
@@ -348,7 +348,7 @@ Ammo().then((Ammo) => {
       geometry.computeBoundingBox();
       geometry.computeVertexNormals();
 
-      xMid = -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
+      xMid = -4 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
 
       geometry.translate(xMid, 0, 0);
 
@@ -390,7 +390,7 @@ Ammo().then((Ammo) => {
       geometry.computeBoundingBox();
       geometry.computeVertexNormals();
 
-      xMid = -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
+      xMid = -4 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
 
       geometry.translate(xMid, 0, 0);
 
@@ -399,7 +399,7 @@ Ammo().then((Ammo) => {
       text = new THREE.Mesh(textGeo, textMaterials);
       text.position.z = -30;
       text.position.y = 15;
-      text.position.x = 80;
+      text.position.x = 100;
       text.receiveShadow = true;
       text.castShadow = true;
       scene.add(text);
@@ -622,7 +622,7 @@ Ammo().then((Ammo) => {
     const loader = new THREE.TextureLoader(manager);
     var pos = new THREE.Vector3();
     var quat = new THREE.Quaternion();
-    var brickMass = 3;
+    var brickMass = .01;
     var brickLength = 5;
     var brickDepth = 3;
     var brickHeight = 1.5;
