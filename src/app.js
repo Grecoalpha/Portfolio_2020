@@ -348,7 +348,7 @@ Ammo().then((Ammo) => {
       geometry.computeBoundingBox();
       geometry.computeVertexNormals();
 
-      xMid = -4 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
+      xMid = -.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
 
       geometry.translate(xMid, 0, 0);
 
@@ -390,7 +390,7 @@ Ammo().then((Ammo) => {
       geometry.computeBoundingBox();
       geometry.computeVertexNormals();
 
-      xMid = -4 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
+      xMid = -.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
 
       geometry.translate(xMid, 0, 0);
 
@@ -733,8 +733,8 @@ Ammo().then((Ammo) => {
   function createTriangle(x, z) {
     var geom = new THREE.Geometry();
     var v1 = new THREE.Vector3(4, 0, 0);
-    var v2 = new THREE.Vector3(5, 0, 0);
-    var v3 = new THREE.Vector3(4.5, 1, 0);
+    var v2 = new THREE.Vector3(4, 0, 0);
+    var v3 = new THREE.Vector3(4., 0, 0);
 
     geom.vertices.push(v1);
     geom.vertices.push(v2);
