@@ -39,14 +39,14 @@ export function createWorld() {
   //camera.lookAt(scene.position);
 
   //Add hemisphere light
-  let hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.1);
+  let hemiLight = new THREE.HemisphereLight(0x8b008b, 0x8b008b, 0.3);
   hemiLight.color.setHSL(0.6, 0.6, 0.6);
   hemiLight.groundColor.setHSL(0.1, 1, 0.4);
   hemiLight.position.set(0, 50, 0);
   scene.add(hemiLight);
 
   //Add directional light
-  let dirLight = new THREE.DirectionalLight(0xffffff, 0.7);
+  let dirLight = new THREE.DirectionalLight(0x8b008b, 0.9);
   dirLight.color.setHSL(0.1, 1, 0.95);
   dirLight.position.set(-10, 100, 50);
   dirLight.position.multiplyScalar(100);
@@ -93,12 +93,12 @@ export function glowingParticles() {
   particleGroup.position.z = 45;
   particleAttributes = { startSize: [], startPosition: [], randomness: [] };
 
-  var totalParticles = 300;
-  var radiusRange = 100;
+  var totalParticles = 10000;
+  var radiusRange = 500;
   for (var i = 0; i < totalParticles; i++) {
     var spriteMaterial = new THREE.SpriteMaterial({
       map: particleTexture,
-      color: 0xffffff,
+      color: 0xe0ffff,
     });
 
     var sprite = new THREE.Sprite(spriteMaterial);
@@ -320,6 +320,6 @@ export function moveParticles() {
 
   // rotate the entire group
   //particleGroup.rotation.x = time * 0.5;
-  particleGroup.rotation.y = time * 0.75;
+  particleGroup.rotation.y = time * 0.9;
   // particleGroup.rotation.z = time * 1.0;
 }
