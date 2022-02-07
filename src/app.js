@@ -100,7 +100,7 @@ Ammo().then((Ammo) => {
     );
 
     // add gravity
-    physicsWorld.setGravity(new Ammo.btVector3(0, -20, 0));
+    physicsWorld.setGravity(new Ammo.btVector3(0, -90, 0));
   }
 
   //create flat plane
@@ -124,7 +124,7 @@ Ammo().then((Ammo) => {
       new THREE.MeshPhongMaterial({
         color: 0x264348,
         transparent: true,
-        opacity: .10,
+        opacity: .90,
       })
     );
     blockPlane.position.set(pos.x, pos.y, pos.z);
@@ -158,8 +158,8 @@ Ammo().then((Ammo) => {
       localInertia
     );
     let body = new Ammo.btRigidBody(rigidBodyStruct);
-    body.setFriction(0.5);
-    body.setRollingFriction(0.5);
+    body.setFriction(5);
+    body.setRollingFriction(5);
 
     // add to world
     physicsWorld.addRigidBody(body);
@@ -170,7 +170,7 @@ Ammo().then((Ammo) => {
     let pos = { x: 8.75, y: 300, z: 0 };
     let radius = 2;
     let quat = { x: 0, y: 0, z: 0, w: 1 };
-    let mass = 5;
+    let mass = 10;
 
     var marble_loader = new THREE.TextureLoader(manager);
     var marbleTexture = marble_loader.load('./src/jsm/earth.jpg');
