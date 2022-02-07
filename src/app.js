@@ -122,9 +122,9 @@ Ammo().then((Ammo) => {
     let blockPlane = new THREE.Mesh(
       new THREE.BoxBufferGeometry(),
       new THREE.MeshPhongMaterial({
-        color: 0xffffff,
-        transparent: false,
-        opacity: 1,
+        color: 0x264348,
+        transparent: true,
+        opacity: .10,
       })
     );
     blockPlane.position.set(pos.x, pos.y, pos.z);
@@ -158,8 +158,8 @@ Ammo().then((Ammo) => {
       localInertia
     );
     let body = new Ammo.btRigidBody(rigidBodyStruct);
-    body.setFriction(10);
-    body.setRollingFriction(2);
+    body.setFriction(0.5);
+    body.setRollingFriction(0.5);
 
     // add to world
     physicsWorld.addRigidBody(body);
@@ -167,7 +167,7 @@ Ammo().then((Ammo) => {
 
   // create ball
   function createBall() {
-    let pos = { x: 8.75, y: 0, z: 0 };
+    let pos = { x: 8.75, y: 300, z: 0 };
     let radius = 2;
     let quat = { x: 0, y: 0, z: 0, w: 1 };
     let mass = 5;
@@ -397,7 +397,7 @@ Ammo().then((Ammo) => {
       var textGeo = new THREE.BufferGeometry().fromGeometry(geometry);
 
       text = new THREE.Mesh(textGeo, textMaterials);
-      text.position.z = -10;
+      text.position.z = -30;
       text.position.y = 15;
       text.position.x = 80;
       text.receiveShadow = true;
