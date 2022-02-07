@@ -100,7 +100,7 @@ Ammo().then((Ammo) => {
     );
 
     // add gravity
-    physicsWorld.setGravity(new Ammo.btVector3(0, -90, 0));
+    physicsWorld.setGravity(new Ammo.btVector3(0, -300, 0));
   }
 
   //create flat plane
@@ -168,7 +168,7 @@ Ammo().then((Ammo) => {
   // create ball
   function createBall() {
     let pos = { x: 8.75, y: 300, z: 0 };
-    let radius = 2;
+    let radius = 1;
     let quat = { x: 0, y: 0, z: 0, w: 1 };
     let mass = 10;
 
@@ -336,7 +336,7 @@ Ammo().then((Ammo) => {
       var geometry = new THREE.TextGeometry('UNBL*CKED', {
         font: font,
         size: 15,
-        height: 5,
+        height: 20,
         curveSegments: 12,
         bevelEnabled: true,
         bevelThickness: 0.1,
@@ -380,7 +380,7 @@ Ammo().then((Ammo) => {
       var geometry = new THREE.TextGeometry('BY AIDEN', {
         font: font,
         size: 10,
-        height: 5,
+        height: 20,
         curveSegments: 20,
         bevelEnabled: true,
         bevelThickness: 0.25,
@@ -622,12 +622,12 @@ Ammo().then((Ammo) => {
     const loader = new THREE.TextureLoader(manager);
     var pos = new THREE.Vector3();
     var quat = new THREE.Quaternion();
-    var brickMass = 0.1;
+    var brickMass = 3;
     var brickLength = 5;
     var brickDepth = 3;
     var brickHeight = 1.5;
     var numberOfBricksAcross = 5;
-    var numberOfRowsHigh = 9;
+    var numberOfRowsHigh = 80;
 
     pos.set(70, brickHeight * 0.5, -60);
     quat.set(0, 0, 0, 1);
