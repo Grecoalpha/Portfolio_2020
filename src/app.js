@@ -170,7 +170,7 @@ Ammo().then((Ammo) => {
     let pos = { x: 8.75, y: 200, z: 0 };
     let radius = 1;
     let quat = { x: 0, y: 0, z: 0, w: 1 };
-    let mass = 2;
+    let mass = 20;
 
     var marble_loader = new THREE.TextureLoader(manager);
     var marbleTexture = marble_loader.load('./src/jsm/earth.jpg');
@@ -336,7 +336,7 @@ Ammo().then((Ammo) => {
       var geometry = new THREE.TextGeometry('UNBL*CKED', {
         font: font,
         size: 15,
-        height: 20,
+        height: 2,
         curveSegments: 12,
         bevelEnabled: true,
         bevelThickness: 0.1,
@@ -380,7 +380,7 @@ Ammo().then((Ammo) => {
       var geometry = new THREE.TextGeometry('BY AIDEN', {
         font: font,
         size: 10,
-        height: 20,
+        height: 2,
         curveSegments: 20,
         bevelEnabled: true,
         bevelThickness: 0.25,
