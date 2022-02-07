@@ -625,9 +625,9 @@ Ammo().then((Ammo) => {
     var brickMass = .01;
     var brickLength = 1;
     var brickDepth = 2;
-    var brickHeight = 1.5;
+    var brickHeight = .5;
     var numberOfBricksAcross = 5;
-    var numberOfRowsHigh = 80;
+    var numberOfRowsHigh = 8;
 
     pos.set(70, brickHeight * 0.5, -60);
     quat.set(0, 0, 0, 1);
